@@ -1,42 +1,43 @@
+"""
+convert frequency to note and note to frequency.
+currently, can only input frequency and note index, and not supporting note name and octave as input
+
+
+usage example:
+    input:
+        import freq_note_converter
+
+        val = freq_note_converter.convert(freq=449)
+        print(val.note)
+    output:
+        'A'
+    input:
+        print(val)
+    output:
+                    freq : 449
+             note_number : 49
+                    note : A
+                  octave : 4
+        offset_from_note : 0.351
+        --------------------------------------------------
+    input:
+        freq_note_converter.convert(note_number=49).print_me()
+    output:
+                    freq : 440.0
+             note_number : 49
+                    note : A
+                  octave : 4
+        offset_from_note : 0
+        --------------------------------------------------
+"""
 from freq_note_converter import converter_code
 
-__str__ = ''
-__repr__ = ''
-values = dict(freq=0,
-              note_number=0,
-              note='',
-              octave=0,
-              offset_from_note=0)
 
-
-# def convert(freq=None, note_number=None, note=None, octave=None):
 def convert(freq=None, note_number=None):
     if freq is not None:
-        freq = freq
-        note, octave, offset_from_note, note_number = converter_code.freq_to_note(freq)
-    # elif note is not None and octave is not None:
-    #     print('not implemented')
+        converter = converter_code.FreqNoteConverter(freq=freq)
     elif note_number is not None:
-        note_number = note_number
-        note, octave, freq = converter_code.note_number_to_freq(note_number)
-        offset_from_note = 0
+        converter = converter_code.FreqNoteConverter(note_number=note_number)
     else:
         print('no valid input')
-    values['freq'] = freq
-    values['note_number'] = note_number
-    values['note'] = note
-    values['octave'] = octave
-    values['offset_from_note'] = offset_from_note
-    update_str()
-    return values
-
-
-def update_str():
-    global __str__, __repr__
-    __str__ = "\n".join(["{: >16} : {}".format(k, v) for k, v in values.items()])
-    __str__ += '\n' + '-' * 50 + '\n'
-    __repr__ = __str__
-
-
-def print_me():
-    print(__str__, end='')
+    return converter
