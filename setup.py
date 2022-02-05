@@ -11,9 +11,9 @@ setuptools.setup(
     description="convert notes to freq and vise verse",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/lisrael1/freq_note_converter",
     project_urls={
-        "Bug Tracker": "https://github.com/pypa/sampleproject/issues",
+        "Bug Tracker": "https://github.com/lisrael1/freq_note_converter/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
