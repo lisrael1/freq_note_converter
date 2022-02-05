@@ -2,7 +2,7 @@
 
 ### convert frequency to note and note to frequency.
 ##### currently, can only input frequency and note index, and not supporting note name and octave as input
-"""
+```
 usage example:
     input:
         import freq_note_converter
@@ -28,4 +28,4 @@ usage example:
                   octave : 4
         offset_from_note : 0
         --------------------------------------------------
-"""
+```
