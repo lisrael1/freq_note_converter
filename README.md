@@ -6,7 +6,8 @@
 usage example:
     input:
         import freq_note_converter
-        val = freq_note_converter.convert(freq=449)
+
+        val = freq_note_converter.from_freq(449)
         print(val.note)
     output:
         'A'
@@ -14,16 +15,16 @@ usage example:
         print(val)
     output:
                     freq : 449
-             note_number : 49
+             note_index : 49
                     note : A
                   octave : 4
         offset_from_note : 0.351
         --------------------------------------------------
     input:
-        freq_note_converter.convert(note_number=49).print_me()
+        freq_note_converter.from_note_index(49).print_me()
     output:
                     freq : 440.0
-             note_number : 49
+             note_index : 49
                     note : A
                   octave : 4
         offset_from_note : 0
