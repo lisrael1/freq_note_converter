@@ -1,4 +1,5 @@
 import math
+from dict_aligned_print import print_dict
 
 
 class FreqNoteConverter:
@@ -21,9 +22,10 @@ class FreqNoteConverter:
                  note=self.note,
                  octave=self.octave,
                  offset_from_note=round(self.offset_from_note, 3))
-        output = "\n".join(["{: >16} : {}".format(k, v) for k, v in d.items()])
-        output += '\n' + '-' * 50 + '\n'
-        return output
+        return print_dict(d, return_instead_of_print=True)
+        # output = "\n".join(["{: >16} : {}".format(k, v) for k, v in d.items()])
+        # output += '\n' + '-' * 50 + '\n'
+        # return output
 
     def __repr__(self):
         return self.__str__()
